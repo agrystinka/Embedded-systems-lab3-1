@@ -38,15 +38,16 @@ public class MainActivity extends AppCompatActivity {
             if (num == x * x) {
                 textView.setText(num + " = " + x + " * " + x);
             } else {
-                while (true) {
+                for (int i = 0; i < 10; i++){
                     x++;
                     double y = Math.sqrt(Math.pow(x, 2) - num);
                     if (y % 1 == 0) {
                         textView.setText(num + " = " + (x - (int) y) + " * " + (x + (int) y) +
                                 "\n" + "Time = " + (System.nanoTime() - start)/1000000 + " ms\n");
-                        break;
+                        return;
                     }
                 }
+                textView.setText("Error: Time exhausted!");
             }
         }
     }
